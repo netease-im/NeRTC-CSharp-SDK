@@ -13,7 +13,7 @@ namespace nertc
     * 通过 JSON 配置 SDK 提供技术预览或特别定制功能。以标准化方式公开 JSON 选项。详见 API setParameters。
     * @endif
     */
-    public class RtcConstants
+    public static class RtcConstants
     {
         #region setParameters Keys
         /**
@@ -265,6 +265,83 @@ namespace nertc
          * @endif
          */
         public static readonly string kNERtcKeyEnableDynamicToken = "enable_dynamic_token";
+        /**
+         * @if English
+         *  BOOL - Specifies whether to turn on the rear camera if the camera is enabled for the first time. The default value is false.
+         * It's available only on iOS platform.
+         * @endif
+         * @if Chinese
+         * 第一次开启摄像头时，是否使用后摄像头。仅iOS平台有效。
+         * <br>布尔值，默认值 false，即不使用后置摄像头。
+         * @endif
+         */
+        public static readonly string kNERtcKeyVideoStartWithBackCamera = "video_start_with_back_camera";
+        /**
+        * @if English
+        *  BOOL - Specifies whether to use metal rendering first. Otherwise, OpenGL rendering is applied. The default value is
+        * false. It's available only on iOS platform.
+        * @endif
+        * @if Chinese
+        * 是否优先使用 Metal 渲染。
+        * <br>布尔值，默认值 false，即使用OpenGL 渲染。仅iOS平台有效。
+        * @endif
+        */
+        public static readonly string kNERtcKeyVideoPreferMetalRender = "video_prefer_metal_render";
+        /**
+        * @if English
+        * BOOL -- Specifies whether to disable switching to the speakerphone when the system switches to the earpieces. The
+        * default value is false. If the value is set to true, the SDK is not allowed to switch to the speakerphone when the system
+        * switches to earpieces. Users need to handle the earpieces switching event.It's available only on iOS platform.
+        * @endif
+        * @if Chinese
+        * 当系统切换听筒或扬声器时，SDK 是否以系统设置为准。仅iOS平台有效。
+        * <br>布尔值，默认为 false。
+        * - true： 以系统设置为准。例如当系统切换为听筒时，应用的音频播放则自动转为听筒，开发者需要自行处理该切换事件。
+        * - false： 以 SDK 设置为准，SDK 不允许用户通过系统变更音频播放路由为听筒或扬声器。例如当 SDK
+        * 设置为扬声器时，即使系统切换为听筒模式，SDK 也会自动将系统修改回扬声器模式。
+        * @endif
+        */
+        public static readonly string kNERtcKeyDisableOverrideSpeakerOnReceiver = "disable_override_speaker_on_receiver";
+        /**
+        * @if English
+        * BOOL - Specifies whether to use echo reduction when the system sets the headset. The default value is false. If the value is
+        * set to YES, the SDK does not use the echo reduction in headset mode. The setting affects the audio quality of the headset
+        * in some mobile models.It's available only on iOS platform.
+        * @endif
+        * @if Chinese
+        * 设置耳机时不使用软件回声消除功能，默认值 false。如设置YES 则SDK在耳机模式下不使用软件回声消除功能，会对某些机型下
+        * 耳机的音质效果有影响。仅iOS平台有效。
+        * @endif
+        */
+        public static readonly string kNERtcKeyDisableSWAECOnHeadset = "disable_sw_aec_on_headset";
+        /**
+         * @if English
+         * Whether to enable bluetooth SCO.The default value is true.It's available only on Android platform.
+         * @endif
+         * @if Chinese
+         * 是否关闭蓝牙SCO.默认打开。仅Android平台有效。
+         * @endif
+         */
+        public static readonly string kNERtcKeyEnableAudioBluetoothSCO = "enable_audio_bluetooth_sco";
+        /**
+        * @if English
+        * Whether to preview the front camera with mirror mode. Default: true. The setting enables the mirror mode.It's available only on Android platform.
+        * @endif
+        * @if Chinese
+        * 前置摄像头预览是否采用镜像模式。默认为 true，开启镜像模式。仅Android平台有效。
+        * @endif
+        */
+        public static readonly string kNERtcKeyEnableVideoMirrorWithFrontCamera = "enable_video_mirror_with_front_camera";
+        /**
+         * @if English
+         * Video camera type.The default value is 1.It's available only on Android platform.
+         * @endif
+         * @if Chinese
+         * 摄像头类型。默认值为1.取值范围为0(unknown), 1, 2.仅Android平台有效。
+         * @endif
+         */
+        public static readonly string kNERtcKeyVideoCameraType = "video_camera_type";
+
         #endregion
         #region Device Keys
         /**

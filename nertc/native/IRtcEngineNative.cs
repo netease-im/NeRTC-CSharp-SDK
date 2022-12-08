@@ -10,7 +10,7 @@ namespace nertc
         public MonoPInvokeCallbackAttribute(Type type) { }
     }
     
-    public class NativeLib
+    public static class NativeLib
     {
 #if UNITY_IOS && !UNITY_EDITOR && !UNITY_STANDALONE
         public const string Name = "__Internal";
@@ -162,7 +162,7 @@ namespace nertc
             if (info.layout.bgImage != null)
             {
                 bgImage = Marshal.AllocHGlobal(Marshal.SizeOf<RtcLiveStreamImageInfo>());
-                Marshal.StructureToPtr(info.layout.bgImage ?? default, bgImage, false);
+                Marshal.StructureToPtr(info.layout.bgImage.Value, bgImage, false);
             }
 
             var nativeTaskInfo = new NativeLiveStreamTaskInfo
@@ -209,7 +209,7 @@ namespace nertc
             if (config.timestampWatermark != null)
             {
                 timestampWatermark = Marshal.AllocHGlobal(Marshal.SizeOf<RtcTimestampWatermarkConfig>());
-                Marshal.StructureToPtr(config.timestampWatermark ?? default, timestampWatermark, false);
+                Marshal.StructureToPtr(config.timestampWatermark.Value, timestampWatermark, false);
             }
 
             var nativeConfig = new NativeCanvasWatermarkConfig

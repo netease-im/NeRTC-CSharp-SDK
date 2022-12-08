@@ -2032,7 +2032,7 @@ namespace nertc
             if (nativeCanvas != null)
             {
                 native = Marshal.AllocHGlobal(Marshal.SizeOf<NativeVideoCanvas>());
-                Marshal.StructureToPtr(nativeCanvas ?? default, native, false);
+                Marshal.StructureToPtr(nativeCanvas.Value, native, false);
             }
 
             int result = IRtcChannelNative.setupLocalVideoCanvas(_nativeChannel, native);
@@ -2057,7 +2057,7 @@ namespace nertc
             if (nativeCanvas != null)
             {
                 native = Marshal.AllocHGlobal(Marshal.SizeOf<NativeVideoCanvas>());
-                Marshal.StructureToPtr(nativeCanvas ?? default, native, false);
+                Marshal.StructureToPtr(nativeCanvas.Value, native, false);
             }
 
             int result = IRtcChannelNative.setupLocalSubstreamVideoCanvas(_nativeChannel, native);
@@ -2112,7 +2112,7 @@ namespace nertc
             if (nativeCanvas != null)
             {
                 native = Marshal.AllocHGlobal(Marshal.SizeOf<NativeVideoCanvas>());
-                Marshal.StructureToPtr(nativeCanvas ?? default, native, false);
+                Marshal.StructureToPtr(nativeCanvas.Value, native, false);
             }
 
             int result = IRtcChannelNative.setupRemoteVideoCanvas(_nativeChannel, uid, native);
@@ -2137,7 +2137,7 @@ namespace nertc
             if (nativeCanvas != null)
             {
                 native = Marshal.AllocHGlobal(Marshal.SizeOf<NativeVideoCanvas>());
-                Marshal.StructureToPtr(nativeCanvas ?? default, native, false);
+                Marshal.StructureToPtr(nativeCanvas.Value, native, false);
             }
 
             int result = IRtcChannelNative.setupRemoteSubstreamVideoCanvas(_nativeChannel, uid, native);

@@ -294,7 +294,7 @@ namespace nertc
                     callback = BindEvent(type),
                     userData = _nativeSelf,
                     window = canvas.window,
-                    scalingMode = (int)canvas.window,
+                    scalingMode = (int)canvas.scalingMode,
                 };
             }
 
@@ -311,7 +311,7 @@ namespace nertc
                     callback = BindChannelEvent(type),
                     userData = _nativeSelf,
                     window = canvas.window,
-                    scalingMode = (int)canvas.window,
+                    scalingMode = (int)canvas.scalingMode,
                 };
             }
 
